@@ -1,0 +1,68 @@
+<!-- Web Technologies Lab 3 | Author: Javier Pardos | javier.pardos10@e-uvt.ro-->
+
+<db> 
+
+    <record name="Record 1" date="01/10/2023" uri="www.example-1.com" type="type-1">
+
+        <subrecord1> subrecord 1.1 </subrecord1>
+
+        <subrecord2> subrecord 1.2 </subrecord2>
+
+        <subrecord3> subrecord 1.3 </subrecord3>
+    </record>
+
+    <record name="Record 2" date="02/10/2023" uri="www.example-2.com" type="type-2">
+        <subrecord1> subrecord 2.1 </subrecord1>
+        <subrecord2> subrecord 2.2 </subrecord2>
+        <subrecord3> subrecord 2.3 </subrecord3>
+    </record>
+
+    <record name="Record 3" date="03/10/2023" uri="www.example-3.com" type="type-3">
+        <subrecord1> subrecord 3.1 </subrecord1>
+        <subrecord2> subrecord 3.2 </subrecord2>
+        <subrecord3> subrecord 3.3 </subrecord3>
+    </record>
+
+    <record name="Record 4" date="04/10/2023" uri="www.example-4.com" type="type-4">
+        <subrecord1> subrecord 4.1 </subrecord1>
+        <subrecord2> subrecord 4.2 </subrecord2>
+        <subrecord3> subrecord 4.3 </subrecord3>
+    </record>
+
+    <record name="Record 5" date="05/10/2023" uri="www.example-5.com" type="type-5">
+        <subrecord1> subrecord 5.1 </subrecord1>
+        <subrecord2> subrecord 5.2 </subrecord2>
+        <subrecord3> subrecord 5.3 </subrecord3>
+    </record>
+
+    <record name="Record 6" date="06/10/2023" uri="www.example-6.com" type="type-6">
+        <subrecord1> subrecord 6.1 </subrecord1>
+        <subrecord2> subrecord 6.2 </subrecord2>
+        <subrecord3> subrecord 6.3 </subrecord3>
+    </record>
+
+    <record name="Record 7" date="07/10/2023" uri="www.example-7.com" type="type-7">
+        <subrecord1> subrecord 7.1 </subrecord1>
+        <subrecord2> subrecord 7.2 </subrecord2>
+        <subrecord3> subrecord 7.3 </subrecord3>
+    </record>
+
+    <record name="Record 8" date="08/10/2023" uri="www.example-8.com" type="type-8">
+        <subrecord1> subrecord 8.1 </subrecord1>
+        <subrecord2> subrecord 8.2 </subrecord2>
+        <subrecord3> subrecord 8.3 </subrecord3>
+    </record>
+
+    <record name="Record 9" date="09/10/2023" uri="www.example-9.com" type="type-9">
+        <subrecord1> subrecord 9.1 </subrecord1>
+        <subrecord2> subrecord 9.2 </subrecord2>
+        <subrecord3> subrecord 9.3 </subrecord3>
+    </record>
+
+    <record name="Record 10" date="10/10/2023" uri="www.example-10.com" type="type-10">
+        <subrecord1> subrecord 10.1 </subrecord1>
+        <subrecord2> subrecord 10.2 </subrecord2>
+        <subrecord3> subrecord 10.3 </subrecord3>
+    </record>
+
+</db>
