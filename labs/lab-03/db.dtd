@@ -1,0 +1,8 @@
+<!-- Web Technologies Lab 3 | Author: Javier Pardos | javier.pardos10@e-uvt.ro-->
+
+<!--Definition of the elements to validate XML (in this case main.xml)-->
+<!ELEMENT db (record*)>
+<!ELEMENT record (subrecord1, subrecord2, subrecord3)>
+<!ELEMENT subrecord1 (#PCDATA)>
+<!ELEMENT subrecord2 (#PCDATA)>
+<!ELEMENT subrecord3 (#PCDATA)>

@@ -1,0 +1,44 @@
+<!-- Web Technologies Lab 3 | Author: Javier Pardos | javier.pardos10@e-uvt.ro-->
+
+<!--File to define the structure of the XML, in order to validate it-->
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="db">
+
+        <xs:complexType>
+
+            <xs:sequence>
+				
+				<!-- The propertie maxOccurs is mandatory to be able to have multiple
+					 elements from type 'record' inside the 'db' element.
+					 If not, the validator will print an error -->
+                <xs:element name="record" maxOccurs="unbounded"> 
+
+                    <xs:complexType>
+
+                        <xs:sequence>
+
+                            <xs:element name="subrecord1" type="xs:string" />
+                            <xs:element name="subrecord2" type="xs:string" />
+                            <xs:element name="subrecord3" type="xs:string" />
+
+                        </xs:sequence>
+
+                        <xs:attribute name="name" type="xs:string" />
+                        <xs:attribute name="date" type="xs:string" />
+                        <xs:attribute name="uri"  type="xs:string" />
+                        <xs:attribute name="type" type="xs:string" />
+
+                    </xs:complexType>
+
+                </xs:element>
+
+            </xs:sequence>
+
+        </xs:complexType>
+		
+    </xs:element>
+
+</xs:schema>
