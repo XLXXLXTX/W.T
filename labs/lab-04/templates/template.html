@@ -1,0 +1,68 @@
+<!-- Web Technologies Lab 4 | Author: Javier Pardos | javier.pardos10@e-uvt.ro -->
+<html>
+
+    <head>
+        
+        <title>Reading db</title>
+
+        <style>
+
+            .headers1 {
+                text-align: center;
+                background-color: #FFD700;
+            }
+
+            .headers2 {
+                text-align: center;
+                background-color: lightblue;
+            }
+            
+            table {
+                border: 2px solid black;
+            }
+
+            td, h2 {
+                text-align: center;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h2>Reading db</h2>
+
+        <table>
+            <tr>
+                <th class="headers1">Name</th>
+                <th class="headers1">Date</th>
+                <th class="headers1">Uri</th>
+                <th class="headers1">Type</th>
+        
+                <th class="headers2">Subrecord1</th>
+                <th class="headers2">Subrecord2</th>
+                <th class="headers2">Subrecord3</th>
+        
+            </tr>
+            
+            <!-- iterate through the dict of values to create the table rows-->
+            {% for entry in content %}
+                <tr>
+                    <td>{{ entry.name }}</td>
+                    <td>{{ entry.date }}</td>
+                    <td><a href="{{ entry.uri }}"> {{ entry.uri }} </a></td>
+                    <td>{{ entry.type }}</td>
+                    
+                    <td>{{ entry.subrecord1 }}</td>
+                    <td>{{ entry.subrecord2 }}</td>
+                    <td>{{ entry.subrecord3 }}</td>
+                    
+                </tr>
+            {% endfor %}
+        
+        </table>
+
+    </body>
+
+</html>
