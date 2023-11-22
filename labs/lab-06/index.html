@@ -86,9 +86,11 @@
             var formElement = document.getElementById(f);
 
             if (!formElement) {
-                //alert("Form not found");
+                // alert("Form not found");
                 return false;
+
             } else {
+
                 // retrieve all the input elements from the form
                 var inputs = formElement.getElementsByTagName("input");
 
@@ -99,16 +101,18 @@
                 for (var i = 0; i < inputs.length; i++) {
                     var element = inputs[i];
 
-                    // to avoid marking submit button as an error
-                    if(element.type == "submit") pass
+                    // to avoid marking submit, hidden, radio fields as errors
+                    if(element.type == "submit" || element.type == "hidden" || element.type == "radio")
+                        continue;
                     
                     // verify if the fields are numerics and if their values are in the correct range
-                    if (element.type == "number" && (element.value > 0 || element.value <= 100)) {
-                        
+                    if ( (element.type == "text") && (element.value >= 0 && element.value <= 100) ) {
+
                         element.style.border = "1px solid #ccc";
                         
                     }else{
-                        //set up the flag to true, to return false at the end
+                        // alert(element.name + " is not a valid number!")
+                        // set up the flag to true, to return false at the end
                         errors = true;
 
                         // if valitation fails, change border color to red
@@ -117,14 +121,65 @@
                     }
                 }
                 
-                // time to check if there are errors
+
+                // time to check if there are errors, to avoid making the second validation
                 if(errors){
                     alert("There are errors in the form, check fields in red!")
                     return false;
+                }else{
+                    // if all fields are numbers, and in the correct range,
+                    // we need to check that min value is < than max value
+                    // in the form of integers
+                    
+                    // vars for min,max values
+                    var element_min, element_max;
+
+                    // get min and max values depending on the form
+                    switch (f) {
+                        case "formIntG":
+                            element_min = document.getElementById("min_int");
+                            element_max = document.getElementById("max_int");
+                            break;
+                        
+                        case "formSeqG":
+                            element_min = document.getElementById("min_seq");
+                            element_max = document.getElementById("max_seq");
+                            break;
+                        
+                        case "formStrG":
+                            element_min = document.getElementById("min_str");
+                            element_max = document.getElementById("max_str");
+                            break;
+                            
+                        default:
+                            alert("Form not found");
+                            return false
+                            break;
+                    }
+
+                    // At this point we are sure min and max values are numbers,
+                    // because the correct first validation
+                    // so we can compare them
+
+                    if(element_min.value > element_max.value){
+                        // change border in error fields
+                        element_min.style.border = "3px solid red";
+                        element_max.style.border = "3px solid red";
+
+                        // alert the user
+                        alert("Min value must be less than max value!");
+                        return false;
+                    
+                    }else{
+
+                        alert("All fields are OK!")
+                        // all fields are OK!
+                        return true;
+                    }
+
                 }
 
-                //al fields are OK!
-                return true;
+
             }
         }
 
