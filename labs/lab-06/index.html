@@ -1,0 +1,361 @@
+<!-- Web Technologies Lab 2 | Author: Javier Pardos -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2 - Main page</title>
+    <style>
+
+        body{
+            /*change family font + add secondary font in case of unavaliable the first one*/
+            font-family: monospace, sans-serif; 
+             /*change background color*/
+            background-color: beige;
+        }
+
+        h3 {
+            /*bold stylish*/
+            font-weight: bold;
+            /*center the text*/
+            text-align: center;
+            /*increase size font for h3 tag*/
+            font-size: 180%;
+            color: rgb(13, 13, 199)
+
+        }
+
+        .title {
+            /*bold stylish*/
+            font-weight: bolder;
+            /*increase font*/
+            font-size: larger;
+            
+        }
+
+        /*style applyed to input and with type submit*/
+        input[type=submit]{
+            /*margin to center the button in the item-container*/
+           margin: 25px 0px 0px 35%;
+        }
+
+
+        /*main div aka big-container class*/
+        .big-container {
+            /*create a container of items inline*/
+            display: flex; 
+             /*aling the items to the center*/
+            justify-content: center;
+            /*margins to split item-containers*/
+            margin: 10px 10px 10px 10px; 
+            /*padding for big-container content itself*/
+            padding: 20px 20px 20px 20px; 
+        }
+
+        /*style to apply for divs */
+        .item-container {
+            /*border config */
+            border: 5px solid #000000; 
+            /*padding top for item-container content */
+            padding: 20px;
+            /*margins top to split item-containers*/
+            margin: 10px;
+            /*change background color for container*/
+            background-color: #ecb52b;
+            /*make items centered*/
+            align-items: center;
+        }
+
+
+    </style>
+
+    <script>
+        
+        /**
+         * -- Web Technologies Lab 6 | Author: Javier Pardos
+         * Validate ALL the fields inside the forms created for Laboratory_2 using JS and DOM. 
+         * For example validate numeric fields to be numeric and also to be in the correct range 
+         * i.e. between 0 and 100 for example;
+         * 
+         */
+        
+         function validateForm(f) {
+
+            // get specific form from the docoument DOM
+            var formElement = document.getElementById(f);
+
+            if (!formElement) {
+                //alert("Form not found");
+                return false;
+            } else {
+                // retrieve all the input elements from the form
+                var inputs = formElement.getElementsByTagName("input");
+
+                // define a "flag" variable to check if there are errors
+                var errors = false;
+
+                // iterate through all the input elements
+                for (var i = 0; i < inputs.length; i++) {
+                    var element = inputs[i];
+
+                    // to avoid marking submit button as an error
+                    if(element.type == "submit") pass
+                    
+                    // verify if the fields are numerics and if their values are in the correct range
+                    if (element.type == "number" && (element.value > 0 || element.value <= 100)) {
+                        
+                        element.style.border = "1px solid #ccc";
+                        
+                    }else{
+                        //set up the flag to true, to return false at the end
+                        errors = true;
+
+                        // if valitation fails, change border color to red
+                        // to alert the user
+                        element.style.border = "3px solid red";
+                    }
+                }
+                
+                // time to check if there are errors
+                if(errors){
+                    alert("There are errors in the form, check fields in red!")
+                    return false;
+                }
+
+                //al fields are OK!
+                return true;
+            }
+        }
+
+
+        function checkboxValidation(o) {
+           //alert(o.name)
+
+            //retrieve checkbox name to split by -, and get the id of the hidden field
+            const original = o.name.split("-", 2)[1];
+            
+            //alert(original)
+            
+            //get the hidden field
+            const param = document.getElementById(original);
+            
+            //alert(param.name + " " + param.value)
+
+            //change value of hidden field depending on checkbox state
+            if(!o.checked){
+                param.value = "off";
+            } else {
+                param.value = "on";
+            }
+
+            //alert(param.name + " " + param.value);
+
+        }
+
+        // https://www.random.org/strings/?num=3&len=3&digits=3&format=plain&rnd=new
+        // https://www.random.org/strings/?num=3&len=3&digits=3&upperalpha=off&loweralpha=off&unique=off&format=plain&rnd=new
+    </script>
+</head>
+<body>
+
+    <div class="big-container">
+
+        <div class="item-container">
+            
+            <h3>Integer generation form:</h3>
+
+            <form id="formIntG" name="formIntG" method="GET" action="https://www.random.org/integers/" onsubmit="return validateForm(this.id)">
+                <label class="title" for="num_int">Numbers:</label>
+                <input type="text" id="num_int" name="num" value="" required>
+                
+                <br>
+
+                <label class="title" for="min_int">Min. value:</label>
+                <input type="text" id="min_int" name="min" value="" required>
+                
+                <br>
+                
+                <label class="title" for="max_int">Max. value:</label>
+                <input type="text" id="max_int" name="max" value="" required>
+                
+                <br>
+
+                <label class="title" for="col_int">Collums:</label>
+                <input type="text" id="col_int" name="col" value="" required>
+                
+                <br>
+
+                <label class="title" for="base_int">Base:</label>
+                <!--dropdownlist con los multiples valores -->
+                <select name="base" id="base_int">
+                    <option value="2">Binary</option>
+                    <option value="8"> Octal</option>
+                    <option value="10" selected>Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select>
+                <br>
+
+                <label class="title">Format:</label><br>
+                <!--radio buttons with html or plain text to choose only one value -->
+                <input type="radio" id="html_int" name="format" value="html">
+                <label for="html_int">HTML</label>
+
+                <input type="radio" id="plain_int" name="format" value="plain" checked>
+                <label for="plain_int">Plain text</label>
+                
+                <br>
+
+                <label class="title">Randomization:</label><br>
+                <!--radio buttons with html or plain text to choose only one value -->
+                <input type="radio" id="new_int" name="rnd" value="new" checked>
+                <label for="new_int">New</label>
+
+                <input type="radio" id="id-identifier_int" name="rnd" value="id.identifier">
+                <label for="id-identifier_int">id.identifier</label>
+
+                <input type="radio" id="date-iso-date_int" name="rnd" value="date.iso-date">
+                <label for="date-iso-date_int">date.iso-date</label>
+
+                <br>
+
+                <input type="submit" value="Generate Integers!">
+            </form>
+        </div>
+
+        <div class="item-container">
+            
+            <h3>Sequence generation form:</h3>
+            
+            <form id="formSeqG" name="formSeqG" method="GET" action="https://www.random.org/sequences/" onsubmit="return validateForm(this.id)" >
+
+                <label class="title" for="min_seq">Min. value:</label>
+                <input type="text" id="min_seq" name="min" value="" required>
+                
+                <br>
+                
+                <label class="title" for="max_seq">Max. value:</label>
+                <input type="text" id="max_seq" name="max" value="" required>
+                
+                <br>
+
+                <label class="title" for="col_seq">Collums:</label>
+                <input type="text" id="col_seq" name="col" value="" required>
+
+                <br>
+
+                <label class="title">Format:</label><br>
+                <!--radio buttons with html or plain text to choose only one value -->
+                <input type="radio" id="html_seq" name="format" value="html">
+                <label for="html_seq">HTML</label>
+
+                <input type="radio" id="plain_seq" name="format" value="plain" checked>
+                <label for="plain_seq">Plain text</label>
+                
+                <br>
+
+                <label class="title">Randomization:</label><br>
+                <!--radio buttons with html or plain text to choose only one value -->
+                <input type="radio" id="new_seq" name="rnd" value="new" checked>
+                <label for="new_seq">New</label>
+
+                <input type="radio" id="id-identifier_seq" name="rnd" value="id.identifier">
+                <label for="id-identifier_seq">id.identifier</label>
+
+                <input type="radio" id="date-iso-date_seq" name="rnd" value="date.iso-date">
+                <label for="date-iso-date_seq">date.iso-date</label>
+
+                <br>
+
+                <input type="submit" value="Generate Sequence!">
+            </form>
+        </div>
+
+
+        <div class="item-container">
+
+            <h3>String generation form:</h3>
+
+
+            <form id="formStrG" name="formStrG" method="GET" action="https://www.random.org/strings/" onsubmit="return validateForm(this.id)">
+                <label class="title" for="num_str">Quantity of strings:</label>
+                <input type="text" id="num_str" name="num" value="" required>
+
+                <br>
+
+                <label class="title" for="len_str">Length:</label>
+                <input type="text" id="len_str" name="len" value="" required>
+
+                <br>
+
+                <label class="title" for="digits_str">Digits:</label>
+                <input type="text" id="digits_str" name="digits" value="" required>
+
+                <br>
+
+                <label class="title">Uppercase letters:</label>
+                <!--strategy to force on/off value in checkbox-->
+                <input type="hidden" id="upperalpha_str" name="upperalpha" value="on">
+                <input type="checkbox" id="onUC" name="cb-upperalpha" value="on" onchange="checkboxValidation(this)" checked> 
+                <label for="onUC">On</label>
+                
+                <!--
+                <input type="checkbox" id="offUC" name="upperalpha" value="off"> 
+                <label for="offUC">Off</label>
+                -->
+                <br>
+
+                <label class="title">Lowercase letters:</label>
+                <!--strategy to force on/off value in checkbox-->
+                <input type="hidden" id="loweralpha_str" name="loweralpha" value="on">
+                <input type="checkbox" id="onLC" name="cb-loweralpha" value="on" onchange="checkboxValidation(this)" checked> 
+                <label for="onLC">On</label>
+
+                <!--
+                <input type="checkbox" id="offLC" name="loweralpha" value="off"> 
+                <label for="offLC">Off</label>
+                -->
+                <br>
+
+                <label class="title">Unique:</label>
+                <!--strategy to force on/off value in checkbox-->
+                <input type="hidden" id="unique_str" name="unique" value="on">
+                <input type="checkbox" id="on" name="cb-unique" value="on" onchange="checkboxValidation(this)" checked> 
+                <label for="on">On</label>
+
+                <!--
+                <input type="checkbox" id="off" name="unique" value="off"> 
+                <label for="off">Off</label>
+                -->
+                <br>
+
+                <label class="title">Format:</label><br>
+                <!--radio buttons with html or plain text to choose only one value -->
+                <input type="radio" id="html_str" name="format" value="html">
+                <label for="html_str">HTML</label>
+
+                <input type="radio" id="plain_str" name="format" value="plain" checked>
+                <label for="plain_str">Plain text</label>
+                
+                <br>
+
+                <label class="title">Randomization:</label><br>
+                <!--radio buttons with html or plain text to choose only one value -->
+                <input type="radio" id="new_str" name="rnd" value="new" checked>
+                <label for="new_str">New</label>
+
+                <input type="radio" id="id-identifier_str" name="rnd" value="id.identifier">
+                <label for="id-identifier_str">id.identifier</label>
+
+                <input type="radio" id="date-iso-date_str" name="rnd" value="date.iso-date">
+                <label for="date-iso-date_str">date.iso-date</label>
+
+                <br>
+
+                <input type="submit" value="Generate Strings!">
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
