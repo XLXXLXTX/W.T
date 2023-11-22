@@ -102,7 +102,7 @@
                     var element = inputs[i];
 
                     // to avoid marking submit, hidden, radio fields as errors
-                    if(element.type == "submit" || element.type == "hidden" || element.type == "radio")
+                    if(element.type == "submit" || element.type == "hidden" || element.type == "radio" || element.type == "checkbox")
                         continue;
                     
                     // verify if the fields are numerics and if their values are in the correct range
@@ -129,7 +129,7 @@
                 }else{
                     // if all fields are numbers, and in the correct range,
                     // we need to check that min value is < than max value
-                    // in the form of integers
+                    // in the form of integers ad sequences
                     
                     // vars for min,max values
                     var element_min, element_max;
@@ -147,10 +147,11 @@
                             break;
                         
                         case "formStrG":
-                            element_min = document.getElementById("min_str");
-                            element_max = document.getElementById("max_str");
+                            // this form has no min and max values
+                            // so we can return true
+                            return true;
                             break;
-                            
+
                         default:
                             alert("Form not found");
                             return false
