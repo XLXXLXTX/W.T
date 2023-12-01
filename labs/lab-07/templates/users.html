@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        
+        <meta charset="UTF-8"/>
+        <title> Flask - Users</title>
+        
+        <style>
+
+            body {
+                font-family: monospace, sans-serif; 
+                text-align: center;
+            }
+
+            td, th, tr {
+                border: 1px solid black;
+                padding: 5px;
+            }
+
+            .big-container {
+                /*create a container of items inline*/
+                display: flex; 
+                /*aling the items to the center*/
+                justify-content: center;
+            }
+
+            .item-container {
+                /*border config */
+                border: 2px solid #000000; 
+                border-radius: 12%;
+                /*padding top for item-container content */
+                padding: 20px;
+                /*margins top to split item-containers*/
+                margin: 10px;
+
+                /*make items centered*/
+                align-items: center;
+            }
+
+            .colheader {
+                background-color:#008E9B;
+                font-size: larger;
+            }
+
+            .data {
+                background-color: #008F7A;
+                color: white;
+                /*border: 0px;*/
+            }
+
+            .title {
+                background-color:  #0089BA;
+                font-size: x-large
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="big-container">
+            <div>
+                <div class="item-container title"> <strong>Users</strong></div>
+            </div>
+        </div>
+
+        
+        <div class="big-container">
+            <div>
+                <div class="item-container colheader"><strong>ID:</strong></div>
+            </div>
+            <div>
+                <div class="item-container colheader"><strong>Username:</strong></div>
+            </div>
+            <div>
+                <div class="item-container colheader"><strong>Email:</strong></div>
+            </div>
+            <div>
+                <div class="item-container colheader"><strong>Age:</strong></div>
+            </div>
+        </div>
+        
+        {% for user in users %}
+        <div class="big-container">
+            
+            <div>
+                <div class="item-container data"> {{ user.id }}</div>
+            </div>
+            
+            <div>
+                <div class="item-container data"> {{ user.username }}</div>
+            </div>
+
+            <div>
+                <div class="item-container data"> {{user.email}}</div>
+            </div>
+            
+            <div>
+                <div class="item-container data"> {{ user.age }} </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </body>
+</html>
