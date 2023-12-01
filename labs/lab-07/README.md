@@ -17,6 +17,6 @@ python3 flaskapp.py
 ```
 
 ## How to use:
-- Visit localhost:5000/ to see a Hello world
-- Visit localhost:5000/users to see a list of users from the database
-- Visit localhost:5000/user/profile/{id} to see the profile of a specific user with **``id = {id}``**
+- Visit [localhost:5000/](localhost:5000/) to see a Hello world
+- Visit [localhost:5000/users](localhost:5000/users) to see a list of users from the database
+- Visit [localhost:5000/user/profile/{id}](localhost:5000/user/profile/{id}) to see the profile of a specific user with **``id = {id}``**
