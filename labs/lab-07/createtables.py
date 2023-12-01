@@ -1,3 +1,4 @@
+#  Web Technologies Lab 7 | Author: Javier Pardos | javier.pardos10@e-uvt.ro 
 from flaskapp import db, User, app
 
 with app.app_context():

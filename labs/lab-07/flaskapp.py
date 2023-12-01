@@ -1,3 +1,4 @@
+#  Web Technologies Lab 7 | Author: Javier Pardos | javier.pardos10@e-uvt.ro 
 import os
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
