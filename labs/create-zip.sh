@@ -21,10 +21,15 @@ then
     exit 1
 fi
 
+# ensure to cd into the folder  
+cd "${1}" || exit 1
+
 # execute zip command
-# -j to remove te folder structure and 
-# add only the files from that folder
-if zip -j "${1}/${2}.zip" "${1}"/* > /dev/null
+# use find command to include subdirectories and their content
+# to make sure the files from that folder
+# are added
+# -@ to read the output from find 
+if find . -mindepth 1 -type f | zip -r "${2}.zip" -@
 then
     echo "Zip created successfully"
 else
