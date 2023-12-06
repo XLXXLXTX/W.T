@@ -1,0 +1,33 @@
+<!-- Web Technologies Lab 9 | Author: Javier Pardos | javier.pardos10@e-uvt.ro -->
+
+{% extends "base.html" %}
+
+{% block title %} User - {{ user.username }} {% endblock %}
+
+{% block content %}
+
+    <div class="big-container">
+                    
+        <div>
+            <div class="item-container colheader"><strong>ID:</strong></div>
+            <div class="item-container data"> {{ user.id }}</div>
+        </div>
+            
+        <div>
+            <div class="item-container colheader"><strong>Username:</strong></div>
+            <div class="item-container data"> {{ user.username }}</div>
+        </div>
+
+        <div>
+            <div class="item-container colheader"><strong>Email:</strong></div>
+            <div class="item-container data"> {{user.email}}</div>
+        </div>
+            
+        <div>
+            <div class="item-container colheader"><strong>Age:</strong></div>
+            <div class="item-container data"> {{ user.age }} </div>
+        </div>
+
+    </div>
+
+{% endblock %}

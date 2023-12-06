@@ -1,0 +1,22 @@
+<!-- Web Technologies Lab 9 | Author: Javier Pardos | javier.pardos10@e-uvt.ro -->
+
+{% extends "base.html" %}
+
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block content %}
+
+
+  <div class="big-container-post">
+                          
+    <div class="item-container data">
+      <h1> {{ post.title }} </h1>
+      <i>Written on {{ post.posted }} by {{ post.posted_by.username }}</i>
+      <p>
+        {{ post.body }}
+      </p>
+    </div>
+    
+  </div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+/* Web Technologies Lab 9 | Author: Javier Pardos | javier.pardos10@e-uvt.ro */
+
+/*users.html*/
+body {
+    font-family: monospace, sans-serif; 
+    text-align: center;
+}
+
+
+.big-container {
+    /*create a container of items inline*/
+    display: flex; 
+    /*aling the items to the center*/
+    justify-content: center;
+}
+
+.big-container-post {
+    /*create a container of items inline*/
+    display: flex; 
+    /*aling the items to the center*/
+    justify-content: center;
+    /*change the direction of the items*/
+    flex-direction: column;
+    /*align the items to the center*/
+    align-items: center;
+}
+
+.item-container {
+    /*border config */
+    border: 2px solid #000000; 
+    border-radius: 12%;
+    /*padding top for item-container content */
+    padding: 20px;
+    /*margins top to split item-containers*/
+    margin: 10px;
+
+    /*make items centered*/
+    align-items: center;
+}
+
+.data {
+    background-color: #008F7A;
+    color: white;
+    /*border: 0px;*/
+}
+
+.colheader {
+    background-color:#008E9B;
+    font-size: larger;
+}

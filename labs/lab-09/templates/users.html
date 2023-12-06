@@ -1,0 +1,19 @@
+<!-- Web Technologies Lab 9 | Author: Javier Pardos | javier.pardos10@e-uvt.ro -->
+
+{% extends "base.html" %}
+
+{% block title %}Users in DB{% endblock %}
+
+{% block content %}
+
+    {% for user in users %}
+
+        <div class="big-container">
+            <a href="{{ url_for('display_user_profile', user_id=user.id) }}">
+                <div class="item-container data"> {{user.id }}) {{ user.username}} </div>   
+            </a>
+
+        </div>
+
+    {% endfor %}
+{% endblock %}
